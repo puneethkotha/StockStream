@@ -1,0 +1,534 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "iteration": 1733795098531,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 3,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 400
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "id": 14,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.4.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: -52w)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\" and r.stock == \"${Stock}\" and r._field == \"close\")\r\n  |> max()\r\n",
+            "refId": "A"
+          }
+        ],
+        "title": "52 week high ${Stock}",
+        "type": "stat"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 3,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        },
+        "id": 12,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.4.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: -52w)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\" and r.stock == \"${Stock}\" and r._field == \"close\")\r\n  |> min()",
+            "refId": "A"
+          }
+        ],
+        "title": "52 Week Low ${Stock}",
+        "type": "stat"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "decimals": 3,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 17,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 10,
+        "options": {
+          "candleStyle": "candles",
+          "colorStrategy": "open-close",
+          "colors": {
+            "down": "red",
+            "up": "green"
+          },
+          "includeAllFields": false,
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "mode": "candles+volume"
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\")\r\n  |> filter(fn: (r) => r.stock == \"${Stock}\")\r\n  |> filter(fn: (r) => r._field == \"open\" or r._field == \"high\" or r._field == \"low\" or r._field == \"close\")\r\n  |> pivot(rowKey:[\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> keep(columns: [\"_time\", \"open\", \"high\", \"low\", \"close\"])\r\n",
+            "refId": "A"
+          }
+        ],
+        "title": "Candlesticks ${Stock}",
+        "type": "candlestick"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 3,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 3
+        },
+        "id": 6,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.4.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\" and r._field == \"close\" and r.stock == \"${Stock}\")\r\n",
+            "refId": "A"
+          }
+        ],
+        "title": "Close ${Stock}",
+        "type": "gauge"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 100000
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 6,
+          "y": 3
+        },
+        "id": 8,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.4.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: -1d)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\" and r.stock == \"${Stock}\" and r._field == \"volume\")\r\n  |> last()\r\n",
+            "refId": "A"
+          }
+        ],
+        "title": "Volume ${Stock}",
+        "type": "gauge"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 3,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"stock_measurements\" and r[\"stock\"] == \"${Stock}\" and r[\"_field\"] == \"close\")\n  |> aggregateWindow(every: 30m, fn: mean, createEmpty: false)\n  |> yield(name: \"line_chart\")\n",
+            "refId": "A"
+          }
+        ],
+        "title": "Close ${Stock}",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 3,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "semi-dark-green",
+                  "value": null
+                },
+                {
+                  "color": "semi-dark-red",
+                  "value": 300
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byRegexp",
+                "options": "GOOGL"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "GOOGL"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 11,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 16,
+        "options": {
+          "displayMode": "lcd",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true
+        },
+        "pluginVersion": "8.4.3",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "bBf0AyVHk"
+            },
+            "query": "from(bucket: \"test-bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r._measurement == \"stock_measurements\")\r\n  |> filter(fn: (r) => \r\n     r.stock == \"GOOGL\" or \r\n     r.stock == \"TSLA\" or \r\n     r.stock == \"NFLX\" or \r\n     r.stock == \"MSFT\" or\r\n     r.stock == \"AAPL\" or\r\n     r.stock == \"AMZN\"\r\n  )\r\n  |> filter(fn: (r) => r._field == \"close\")\r\n\r\n  |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)\r\n  |> pivot(rowKey:[\"_time\"], columnKey: [\"stock\"], valueColumn: \"_value\")\r\n  |> yield(name: \"daily_mean_close\")\r\n\r\n\r\n",
+            "refId": "A"
+          }
+        ],
+        "title": "Comparison Daily Mean Close",
+        "type": "bargauge"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 35,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "AMZN",
+            "value": "AMZN"
+          },
+          "definition": "import \"influxdata/influxdb/schema\"\nschema.tagValues(bucket: \"test-bucket\", tag: \"stock\")\n",
+          "hide": 0,
+          "includeAll": false,
+          "multi": false,
+          "name": "Stock",
+          "options": [],
+          "query": "import \"influxdata/influxdb/schema\"\nschema.tagValues(bucket: \"test-bucket\", tag: \"stock\")\n",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Stock prices",
+    "uid": "NbcY0sVHz",
+    "version": 25,
+    "weekStart": ""
+  }
