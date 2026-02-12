@@ -1,4 +1,4 @@
-# StockStream - Real Time Stock Insights
+# StockStream - Distributed Real-Time Analytics Platform
 
 ## Overview
 
