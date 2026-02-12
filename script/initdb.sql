@@ -18,3 +18,10 @@ CREATE TABLE public.stock_info (
     Exchange VARCHAR(50),
     ShortRatio DECIMAL(18, 2)
 );
+
+-- Create indexes for optimized query performance
+CREATE INDEX idx_stock_symbol ON public.stock_info(Symbol);
+CREATE INDEX idx_stock_date ON public.stock_info(Entry_Date);
+CREATE INDEX idx_stock_sector ON public.stock_info(Sector);
+CREATE INDEX idx_stock_industry ON public.stock_info(Industry);
+CREATE INDEX idx_stock_symbol_date ON public.stock_info(Symbol, Entry_Date);

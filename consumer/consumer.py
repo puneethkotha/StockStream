@@ -9,6 +9,7 @@ from pyspark.sql.functions import from_json, col, to_timestamp
 from pyspark.sql.types import StructType, StructField, StringType, DoubleType, TimestampType
 from logs.logger import setup_logger
 from InfluxDBWriter import InfluxDBWriter
+from alert_rules import AlertEngine
 
 # Kafka and database configurations
 KAFKA_TOPIC_NAME = "real-time-stock-prices"
@@ -42,6 +43,7 @@ stock_price_schema = StructType([
 def process_batch(batch_df, batch_id):
     """
     Process each micro-batch and write data to InfluxDB.
+    Also applies rule-based alerting on incoming data.
     """
     logger.info(f"Processing batch {batch_id}")
 
@@ -62,7 +64,7 @@ def process_batch(batch_df, batch_id):
             "date IS NOT NULL AND open IS NOT NULL AND high IS NOT NULL AND low IS NOT NULL AND close IS NOT NULL AND volume IS NOT NULL"
         )
 
-        # Write each row to InfluxDB
+        # Write each row to InfluxDB and apply alert rules
         for row in valid_rows.collect():
             if row["date"]:
                 # `to_timestamp` has already converted `date` to a `datetime` object
@@ -85,6 +87,23 @@ def process_batch(batch_df, batch_id):
                 influxdb_writer.process(timestamp_s, tags, fields)
             except Exception as e:
                 logger.error(f"Failed to write to InfluxDB: {e}")
+            
+            # Apply rule-based alerting
+            try:
+                stock_data = {
+                    "stock": row["stock"],
+                    "open": row["open"],
+                    "high": row["high"],
+                    "low": row["low"],
+                    "close": row["close"],
+                    "volume": row["volume"]
+                }
+                alerts = alert_engine.process_stock_data(stock_data)
+                if alerts:
+                    logger.info(f"Triggered {len(alerts)} alert(s) for {row['stock']}")
+            except Exception as e:
+                logger.error(f"Failed to process alerts: {e}")
+                
     except Exception as e:
         logger.error(f"Error processing batch: {e}")
 
@@ -109,13 +128,21 @@ if __name__ == "__main__":
         os.environ.get("INFLUXDB_BUCKET", "stock-prices-bucket"),
         os.environ.get("INFLUXDB_MEASUREMENT", "stock-price-v1")
     )
+    
+    # Initialize Alert Engine for rule-based monitoring
+    alert_engine = AlertEngine()
+    logger.info("Alert engine initialized with default rules")
 
-    # Read data from Kafka
+    # Read data from Kafka with consumer group configuration
     kafka_stream = (
         spark.readStream.format("kafka")
         .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS)
         .option("subscribe", KAFKA_TOPIC_NAME)
         .option("startingOffsets", "earliest")
+        .option("kafka.group.id", "stock-stream-consumer-group")
+        .option("kafka.enable.auto.commit", "true")
+        .option("kafka.auto.commit.interval.ms", "1000")
+        .option("maxOffsetsPerTrigger", "10000")  # Backpressure control for burst traffic
         .load()
     )
 
