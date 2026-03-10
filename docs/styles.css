@@ -71,6 +71,7 @@ body {
 
 .logo-icon {
   color: var(--accent);
+  stroke: var(--accent);
   flex-shrink: 0;
   display: block;
 }
@@ -237,6 +238,7 @@ body {
 }
 .feature-icon svg {
   display: block;
+  stroke: var(--accent);
 }
 
 .feature h3 {
