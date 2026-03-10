@@ -71,7 +71,8 @@ body {
 
 .logo-icon {
   color: var(--accent);
-  font-size: 0.9rem;
+  flex-shrink: 0;
+  display: block;
 }
 
 .nav-links {
@@ -231,8 +232,11 @@ body {
 }
 
 .feature-icon {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: var(--accent);
+}
+.feature-icon svg {
+  display: block;
 }
 
 .feature h3 {
