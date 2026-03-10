@@ -93,7 +93,7 @@
     <section id="architecture" class="section architecture">
       <h2 class="section-title">Architecture</h2>
       <div class="arch-diagram">
-        <img src="images/architecture.jpg" alt="StockStream architecture: Yahoo API → Producer → Kafka → Spark Consumer → InfluxDB + PostgreSQL → Grafana" width="1200" height="auto">
+        <img src="pipeline.svg" alt="StockStream architecture: Yahoo API → Producer → Kafka → Spark Consumer → InfluxDB + PostgreSQL → Grafana">
       </div>
       <p class="arch-caption">
         End-to-end pipeline: Yahoo Finance API → Kafka → Spark Streaming → InfluxDB &amp; PostgreSQL → Grafana dashboards. Fully containerized with Docker.
