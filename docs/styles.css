@@ -11,6 +11,7 @@
   --text-muted: #a1a1aa;
   --accent: #22c55e;
   --accent-dim: #16a34a;
+  --accent-muted: #1e9e4a;
   --border: #27272a;
   --radius: 8px;
   --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -234,11 +235,11 @@ body {
 
 .feature-icon {
   margin-bottom: 1rem;
-  color: var(--accent);
+  color: var(--accent-muted);
 }
 .feature-icon svg {
   display: block;
-  stroke: var(--accent);
+  stroke: var(--accent-muted);
 }
 
 .feature h3 {
