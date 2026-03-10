@@ -1,62 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" font-family="system-ui, -apple-system, sans-serif">
   <defs>
-    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 Z" fill="#71717a"/>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6 Z" fill="#71717a"/>
     </marker>
   </defs>
-  <!-- Docker boundary -->
-  <rect x="70" y="42" width="300" height="305" rx="14" fill="transparent" stroke="#3f3f46" stroke-width="1.5"/>
-  <!-- Yahoo API (outside) -->
-  <rect x="8" y="12" width="52" height="52" rx="10" fill="#2563eb"/>
-  <text x="34" y="32" font-family="system-ui,sans-serif" font-size="9" fill="white" text-anchor="middle">api</text>
-  <text x="34" y="82" font-family="system-ui,sans-serif" font-size="11" fill="#a1a1aa" text-anchor="middle">Yahoo API</text>
-  <!-- Producer -->
-  <rect x="95" y="50" width="110" height="32" rx="8" fill="#27272a" stroke="#52525b"/>
-  <text x="150" y="71" font-family="system-ui,sans-serif" font-size="11" fill="#e4e4e7" text-anchor="middle">Producer Function</text>
-  <!-- Kafka -->
-  <g transform="translate(290, 115)">
-    <path d="M-12-8 Q0 0 -12 8 M0-12 Q8 0 0 12 M12-8 Q0 0 12 8" stroke="#27272a" stroke-width="2" fill="none"/>
-    <text x="0" y="42" font-family="system-ui,sans-serif" font-size="11" fill="#e4e4e7" text-anchor="middle">kafka</text>
-  </g>
-  <!-- Consumer -->
-  <rect x="95" y="115" width="110" height="32" rx="8" fill="#27272a" stroke="#52525b"/>
-  <text x="150" y="136" font-family="system-ui,sans-serif" font-size="11" fill="#e4e4e7" text-anchor="middle">Consumer Function</text>
-  <!-- Spark -->
-  <g transform="translate(170, 200)">
-    <polygon points="0,-14 5,-4 14,0 5,4 0,14 -5,4 -14,0 -5,-4" fill="#ea580c" stroke="none"/>
-    <text x="0" y="45" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#e4e4e7" text-anchor="middle">Spark</text>
-  </g>
-  <!-- Branch from Spark -->
-  <line x1="170" y1="214" x2="170" y2="235" stroke="#71717a" stroke-width="1.5"/>
-  <line x1="170" y1="235" x2="120" y2="235" stroke="#71717a" stroke-width="1.5"/>
-  <line x1="170" y1="235" x2="320" y2="235" stroke="#71717a" stroke-width="1.5"/>
-  <!-- InfluxDB -->
-  <g transform="translate(120, 265)">
-    <polygon points="0,-14 12,-7 12,7 0,14 -12,7 -12,-7" fill="#7c3aed" stroke="none"/>
-    <text x="0" y="45" font-family="system-ui,sans-serif" font-size="11" fill="#e4e4e7" text-anchor="middle">InfluxDB</text>
-  </g>
-  <!-- PostgreSQL -->
-  <g transform="translate(320, 265)">
-    <path d="M-10 0 Q-10 -12 0 -8 Q10 -12 10 0 Q10 12 0 8 Q-10 12 -10 0" fill="#336791" stroke="none"/>
-    <text x="0" y="45" font-family="system-ui,sans-serif" font-size="11" fill="#336791" text-anchor="middle">PostgreSQL</text>
-  </g>
-  <!-- Grafana -->
-  <g transform="translate(120, 330)">
-    <circle cx="0" cy="-5" r="16" fill="none" stroke="#f97316" stroke-width="2"/>
-    <path d="M-8 2 Q0 -10 8 2 Q0 14 -8 2" fill="none" stroke="#f97316" stroke-width="2"/>
-    <text x="0" y="40" font-family="system-ui,sans-serif" font-size="11" fill="#e4e4e7" text-anchor="middle">Grafana</text>
-  </g>
-  <!-- Docker -->
-  <g transform="translate(365, 315)">
-    <path d="M0 -18 L15 0 L0 18 L-15 0 Z" fill="#2496ed" stroke="none"/>
-    <text x="0" y="45" font-family="system-ui,sans-serif" font-size="11" fill="#2496ed" text-anchor="middle">docker</text>
-  </g>
-  <!-- Arrows -->
-  <path d="M60 38 L95 58" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M150 82 L270 100" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M260 116 L205 116" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M150 147 L165 184" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M170 235 L120 250" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M170 235 L320 250" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
-  <path d="M120 290 L120 312" stroke="#71717a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Node shapes with distinct geometry -->
+  <!-- 1. Yahoo API - pill (data source) -->
+  <rect x="24" y="35" width="72" height="36" rx="18" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="60" y="58" font-size="11" fill="#e4e4e7" text-anchor="middle">Yahoo API</text>
+
+  <!-- 2. Producer - rounded rect -->
+  <rect x="130" y="42" width="110" height="34" rx="6" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="185" y="64" font-size="11" fill="#e4e4e7" text-anchor="middle">Producer</text>
+
+  <!-- 3. Kafka - hexagon -->
+  <path d="M310 60 L370 90 L370 150 L310 180 L250 150 L250 90 Z" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="310" y="125" font-size="12" font-weight="600" fill="#e4e4e7" text-anchor="middle">Kafka</text>
+
+  <!-- 4. Consumer - rounded rect -->
+  <rect x="130" y="145" width="110" height="34" rx="6" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="185" y="167" font-size="11" fill="#e4e4e7" text-anchor="middle">Consumer</text>
+
+  <!-- 5. Spark - diamond (processor) -->
+  <path d="M250 215 L305 250 L250 285 L195 250 Z" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="250" y="253" font-size="11" font-weight="600" fill="#e4e4e7" text-anchor="middle">Spark</text>
+
+  <!-- 6. InfluxDB - cylinder (DB) -->
+  <path d="M108 305 L108 335 L192 335 L192 305 Z" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <ellipse cx="150" cy="305" rx="42" ry="10" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <ellipse cx="150" cy="335" rx="42" ry="10" fill="#1a1a1d" stroke="#52525b" stroke-width="1"/>
+  <text x="150" y="360" font-size="11" fill="#e4e4e7" text-anchor="middle">InfluxDB</text>
+
+  <!-- 7. PostgreSQL - cylinder -->
+  <path d="M308 305 L308 335 L392 335 L392 305 Z" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <ellipse cx="350" cy="305" rx="42" ry="10" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <ellipse cx="350" cy="335" rx="42" ry="10" fill="#1a1a1d" stroke="#52525b" stroke-width="1"/>
+  <text x="350" y="360" font-size="11" fill="#e4e4e7" text-anchor="middle">PostgreSQL</text>
+
+  <!-- 8. Grafana - rounded rect -->
+  <rect x="108" y="375" width="84" height="20" rx="4" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+  <text x="150" y="389" font-size="10" fill="#e4e4e7" text-anchor="middle">Grafana</text>
+
+  <!-- Arrows: from node edge to node edge -->
+  <path d="M96 53 L130 59" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M240 59 L285 85" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M250 120 L240 162" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M185 179 L232 228" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M218 268 L135 298" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M282 268 L315 298" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M150 338 L150 375" stroke="#71717a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
 </svg>
