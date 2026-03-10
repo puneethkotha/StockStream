@@ -1,7 +1,22 @@
-confluent_kafka
-python-dotenv
-findspark
-psycopg2-binary
-yfinance
-influxdb_client
-schedule
+# StockStream - Production Dependencies
+# Pin versions for reproducible builds
+
+# Kafka
+confluent-kafka>=2.3.0,<3.0.0
+
+# Configuration
+python-dotenv>=1.0.0,<2.0.0
+
+# Spark
+findspark>=3.0.0
+
+# Database
+psycopg2-binary>=2.9.0
+influxdb-client>=1.36.0,<2.0.0
+
+# Data & Scheduling
+yfinance>=0.2.0
+schedule>=1.2.0
+
+# Utilities (optional, for type hints)
+pytz>=2023.0

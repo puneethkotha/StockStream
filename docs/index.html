@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StockStream — Distributed real-time analytics platform for streaming stock market data. Kafka, Spark, InfluxDB, Grafana.">
+  <title>StockStream — Real-Time Stock Analytics Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo-icon">●</span>
+        StockStream
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#quickstart">Quick Start</a>
+        <a href="https://github.com/puneethkotha/StockStream" class="nav-cta">View on GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero-title">
+        Real-Time Stock Analytics<br>
+        <span class="accent">at Scale</span>
+      </h1>
+      <p class="hero-desc">
+        Distributed event streaming platform that processes thousands of stock events per second. 
+        Kafka · Spark · InfluxDB · Grafana. Production-ready.
+      </p>
+      <div class="hero-actions">
+        <a href="#quickstart" class="btn btn-primary">Get Started</a>
+        <a href="#architecture" class="btn btn-secondary">View Architecture</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">10K+</span>
+          <span class="stat-label">events/sec</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">&lt;100ms</span>
+          <span class="stat-label">latency</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">open source</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section features">
+      <h2 class="section-title">Key Features</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3>Distributed Streaming</h3>
+          <p>Apache Kafka with multi-partition topics, consumer groups, and backpressure control for burst traffic.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">📊</div>
+          <h3>Hybrid Storage</h3>
+          <p>PostgreSQL for metadata with optimized indexes. InfluxDB for time-series price data and fast aggregations.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">🔔</div>
+          <h3>Rule-Based Alerts</h3>
+          <p>Price drops, spikes, high volume, and volatility alerts. Configurable thresholds and severity levels.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon" aria-hidden="true">📈</div>
+          <h3>Live Dashboards</h3>
+          <p>Grafana dashboards for real-time monitoring, candlestick charts, and trend analysis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="architecture" class="section architecture">
+      <h2 class="section-title">Architecture</h2>
+      <div class="arch-diagram">
+        <img src="images/architecture.jpg" alt="StockStream architecture: Yahoo API → Producer → Kafka → Spark Consumer → InfluxDB + PostgreSQL → Grafana" width="1200" height="auto">
+      </div>
+      <p class="arch-caption">
+        End-to-end pipeline: Yahoo Finance API → Kafka → Spark Streaming → InfluxDB &amp; PostgreSQL → Grafana dashboards. Fully containerized with Docker.
+      </p>
+    </section>
+
+    <section class="section dashboard-preview">
+      <h2 class="section-title">Dashboard Preview</h2>
+      <div class="dashboard-wrap">
+        <img src="images/grafana.jpg" alt="StockStream Grafana dashboard showing real-time MSFT price, volume, candlesticks, and metrics" width="1200" height="auto">
+      </div>
+      <p class="arch-caption">
+        Real-time stock tracking with candlesticks, gauges, and comparative metrics.
+      </p>
+    </section>
+
+    <section id="quickstart" class="section quickstart">
+      <h2 class="section-title">Quick Start</h2>
+      <div class="quickstart-steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <pre><code>docker-compose up -d</code></pre>
+          <p>Start Kafka, Spark, InfluxDB, PostgreSQL, Grafana</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <pre><code>pip install -r requirements.txt</code></pre>
+          <p>Install Python dependencies</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <pre><code>cd producer && python producer.py</code></pre>
+          <p>Run the stock data producer</p>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <pre><code>spark-submit ... consumer/consumer.py</code></pre>
+          <p>Start Spark Streaming consumer (see <a href="https://github.com/puneethkotha/StockStream">README</a>)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <h2 class="section-title">Ready to stream?</h2>
+      <p>Clone the repository and run with Docker in minutes.</p>
+      <a href="https://github.com/puneethkotha/StockStream" class="btn btn-primary">View on GitHub</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>StockStream — Open source. Built for scale.</p>
+    <p class="footer-links">
+      <a href="https://github.com/puneethkotha/StockStream">GitHub</a>
+      <a href="https://github.com/puneethkotha/StockStream#readme">README</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
