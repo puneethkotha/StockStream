@@ -1,49 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" font-family="system-ui, -apple-system, sans-serif">
   <defs>
     <marker id="a" markerWidth="4" markerHeight="3" refX="3" refY="1.5" orient="auto">
       <path d="M0 0 L4 1.5 L0 3 Z" fill="#64748b"/>
     </marker>
   </defs>
-  <!-- Nodes 52×28, icons 20×20 centered -->
-  <!-- Yahoo -->
+  <!-- Nodes: icon + label -->
   <rect x="0" y="8" width="52" height="28" rx="6" fill="#2563eb"/>
-  <g transform="translate(16, 12)"><circle cx="6" cy="8" r="2" fill="none" stroke="white" stroke-width="1"/><circle cx="14" cy="8" r="2" fill="none" stroke="white" stroke-width="1"/><path d="M8 8 L12 8" stroke="white" stroke-width="1"/></g>
+  <g transform="translate(16, 10)"><circle cx="6" cy="6" r="2" fill="none" stroke="white" stroke-width="1"/><circle cx="14" cy="6" r="2" fill="none" stroke="white" stroke-width="1"/><path d="M8 6 L12 6" stroke="white" stroke-width="1"/></g>
+  <text x="26" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Yahoo</text>
 
-  <!-- Producer -->
   <rect x="68" y="8" width="52" height="28" rx="6" fill="#0d9488"/>
-  <g transform="translate(84, 12)"><path d="M2 10 L6 6 L10 10 M6 6 L6 2" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="translate(84, 10)"><path d="M2 10 L6 6 L10 10 M6 6 L6 2" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/></g>
+  <text x="94" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Producer</text>
 
-  <!-- Kafka -->
   <rect x="136" y="8" width="52" height="28" rx="6" fill="#27272a" stroke="#52525b" stroke-width="1"/>
-  <g transform="translate(152, 12)"><path d="M4 4 L4 12 M10 4 L10 12 M4 8 L10 8" stroke="#e4e4e7" stroke-width="1.2"/></g>
+  <g transform="translate(152, 10)"><path d="M4 4 L4 12 M10 4 L10 12 M4 8 L10 8" stroke="#e4e4e7" stroke-width="1.2"/></g>
+  <text x="162" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Kafka</text>
 
-  <!-- Consumer -->
   <rect x="204" y="8" width="52" height="28" rx="6" fill="#0d9488"/>
-  <g transform="translate(220, 12)"><path d="M2 6 L6 10 L10 6 M6 10 L6 14" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="translate(220, 10)"><path d="M2 6 L6 10 L10 6 M6 10 L6 14" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/></g>
+  <text x="230" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Consumer</text>
 
-  <!-- Spark -->
   <rect x="272" y="8" width="52" height="28" rx="6" fill="#ea580c"/>
-  <g transform="translate(288, 12)"><path d="M10 2 L6 8 L10 6 L4 10 L8 6 L2 14" fill="none" stroke="white" stroke-width="1.2"/></g>
+  <g transform="translate(288, 10)"><path d="M10 2 L6 8 L10 6 L4 10 L8 6 L2 14" fill="none" stroke="white" stroke-width="1.2"/></g>
+  <text x="298" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Spark</text>
 
-  <!-- InfluxDB -->
-  <rect x="340" y="48" width="52" height="28" rx="6" fill="#7c3aed"/>
-  <g transform="translate(356, 52)"><ellipse cx="10" cy="4" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/><path d="M2 4 L2 12 L18 12 L18 4" fill="none" stroke="white" stroke-width="1"/><ellipse cx="10" cy="12" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/></g>
+  <rect x="340" y="58" width="52" height="28" rx="6" fill="#7c3aed"/>
+  <g transform="translate(356, 62)"><ellipse cx="10" cy="4" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/><path d="M2 4 L2 12 L18 12 L18 4" fill="none" stroke="white" stroke-width="1"/><ellipse cx="10" cy="12" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/></g>
+  <text x="366" y="98" font-size="6" fill="#a1a1aa" text-anchor="middle">InfluxDB</text>
 
-  <!-- PostgreSQL -->
-  <rect x="408" y="48" width="52" height="28" rx="6" fill="#2563eb"/>
-  <g transform="translate(424, 52)"><ellipse cx="10" cy="4" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/><path d="M2 4 L2 12 L18 12 L18 4" fill="none" stroke="white" stroke-width="1"/><ellipse cx="10" cy="12" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/></g>
+  <rect x="408" y="58" width="52" height="28" rx="6" fill="#2563eb"/>
+  <g transform="translate(424, 62)"><ellipse cx="10" cy="4" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/><path d="M2 4 L2 12 L18 12 L18 4" fill="none" stroke="white" stroke-width="1"/><ellipse cx="10" cy="12" rx="8" ry="2" fill="none" stroke="white" stroke-width="1"/></g>
+  <text x="434" y="98" font-size="6" fill="#a1a1aa" text-anchor="middle">PostgreSQL</text>
 
-  <!-- Grafana -->
   <rect x="340" y="8" width="52" height="28" rx="6" fill="#ea580c"/>
-  <g transform="translate(356, 12)"><path d="M2 14 L6 8 L10 12 L14 6 L18 10" fill="none" stroke="white" stroke-width="1.2"/></g>
+  <g transform="translate(356, 10)"><path d="M2 14 L6 8 L10 12 L14 6 L18 10" fill="none" stroke="white" stroke-width="1.2"/></g>
+  <text x="366" y="52" font-size="6" fill="#a1a1aa" text-anchor="middle">Grafana</text>
 
-  <!-- Arrows: edge-to-edge, straight, aligned -->
+  <!-- Arrows -->
   <path d="M52 22 L68 22" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
   <path d="M120 22 L136 22" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
   <path d="M188 22 L204 22" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
   <path d="M256 22 L272 22" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
-  <path d="M298 36 L366 48" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
-  <path d="M298 36 L434 48" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
-  <path d="M366 48 L366 36" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
-  <path d="M434 48 L392 36" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+  <path d="M298 36 L366 58" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+  <path d="M298 36 L434 58" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+  <!-- Last two: symmetrically spaced into Grafana bottom (358 and 374, 8px each side of center 366) -->
+  <path d="M366 58 L358 36" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+  <path d="M434 58 L374 36" stroke="#64748b" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
 </svg>
