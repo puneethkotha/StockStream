@@ -270,6 +270,10 @@ body {
   height: auto;
   max-width: 100%;
 }
+.arch-diagram img {
+  max-height: 140px;
+  object-fit: contain;
+}
 
 .arch-caption {
   font-size: 0.9rem;

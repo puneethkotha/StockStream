@@ -1,52 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 100" font-family="system-ui, -apple-system, sans-serif">
   <defs>
-    <marker id="arr" markerWidth="5" markerHeight="4" refX="4" refY="2" orient="auto">
-      <path d="M0 0 L5 2 L0 4 Z" fill="#94a3b8"/>
+    <marker id="arr" markerWidth="4" markerHeight="3" refX="3" refY="1.5" orient="auto">
+      <path d="M0 0 L4 1.5 L0 3 Z" fill="#94a3b8"/>
     </marker>
   </defs>
+  <!-- Horizontal pipeline - no scroll -->
   <!-- 1. Yahoo API -->
-  <rect x="68" y="4" width="64" height="20" rx="10" fill="#2563eb" stroke="#3b82f6" stroke-width="0.8"/>
-  <text x="100" y="18" font-size="7" fill="white" text-anchor="middle">Yahoo API</text>
+  <rect x="0" y="30" width="52" height="20" rx="10" fill="#2563eb" stroke="#3b82f6" stroke-width="0.6"/>
+  <text x="26" y="44" font-size="6" fill="white" text-anchor="middle">Yahoo API</text>
 
   <!-- 2. Producer -->
-  <rect x="72" y="38" width="56" height="18" rx="4" fill="#0d9488" stroke="#14b8a6" stroke-width="0.8"/>
-  <text x="100" y="50" font-size="7" fill="white" text-anchor="middle">Producer</text>
+  <rect x="72" y="32" width="48" height="16" rx="4" fill="#0d9488" stroke="#14b8a6" stroke-width="0.6"/>
+  <text x="96" y="43" font-size="6" fill="white" text-anchor="middle">Producer</text>
 
   <!-- 3. Kafka -->
-  <path d="M100 62 L125 74 L125 106 L100 118 L75 106 L75 74 Z" fill="#1f2937" stroke="#374151" stroke-width="0.8"/>
-  <text x="100" y="92" font-size="8" font-weight="600" fill="#e5e7eb" text-anchor="middle">Kafka</text>
+  <path d="M138 38 L162 48 L162 68 L138 78 L114 68 L114 48 Z" fill="#1f2937" stroke="#374151" stroke-width="0.6"/>
+  <text x="138" y="65" font-size="7" font-weight="600" fill="#e5e7eb" text-anchor="middle">Kafka</text>
 
   <!-- 4. Consumer -->
-  <rect x="72" y="132" width="56" height="18" rx="4" fill="#0d9488" stroke="#14b8a6" stroke-width="0.8"/>
-  <text x="100" y="144" font-size="7" fill="white" text-anchor="middle">Consumer</text>
+  <rect x="196" y="32" width="48" height="16" rx="4" fill="#0d9488" stroke="#14b8a6" stroke-width="0.6"/>
+  <text x="220" y="43" font-size="6" fill="white" text-anchor="middle">Consumer</text>
 
   <!-- 5. Spark -->
-  <path d="M100 162 L125 178 L100 194 L75 178 Z" fill="#ea580c" stroke="#f97316" stroke-width="0.8"/>
-  <text x="100" y="180" font-size="7" font-weight="600" fill="white" text-anchor="middle">Spark</text>
+  <path d="M262 38 L286 54 L262 70 L238 54 Z" fill="#ea580c" stroke="#f97316" stroke-width="0.6"/>
+  <text x="262" y="56" font-size="6" font-weight="600" fill="white" text-anchor="middle">Spark</text>
 
   <!-- 6. InfluxDB -->
-  <path d="M58 208 L58 224 L82 224 L82 208 Z" fill="#7c3aed" stroke="#8b5cf6" stroke-width="0.8"/>
-  <ellipse cx="70" cy="208" rx="12" ry="4" fill="#7c3aed" stroke="#8b5cf6" stroke-width="0.8"/>
-  <ellipse cx="70" cy="224" rx="12" ry="4" fill="#5b21b6" stroke="#8b5cf6" stroke-width="0.8"/>
-  <text x="70" y="240" font-size="7" fill="#e4e4e7" text-anchor="middle">InfluxDB</text>
+  <path d="M306 42 L306 54 L330 54 L330 42 Z" fill="#7c3aed" stroke="#8b5cf6" stroke-width="0.6"/>
+  <ellipse cx="318" cy="42" rx="12" ry="3" fill="#7c3aed" stroke="#8b5cf6" stroke-width="0.6"/>
+  <ellipse cx="318" cy="54" rx="12" ry="3" fill="#5b21b6" stroke="#8b5cf6" stroke-width="0.6"/>
+  <text x="318" y="70" font-size="6" fill="#e4e4e7" text-anchor="middle">InfluxDB</text>
 
   <!-- 7. PostgreSQL -->
-  <path d="M118 208 L118 224 L142 224 L142 208 Z" fill="#2563eb" stroke="#3b82f6" stroke-width="0.8"/>
-  <ellipse cx="130" cy="208" rx="12" ry="4" fill="#2563eb" stroke="#3b82f6" stroke-width="0.8"/>
-  <ellipse cx="130" cy="224" rx="12" ry="4" fill="#1d4ed8" stroke="#3b82f6" stroke-width="0.8"/>
-  <text x="130" y="240" font-size="7" fill="#e4e4e7" text-anchor="middle">PostgreSQL</text>
+  <path d="M356 42 L356 54 L380 54 L380 42 Z" fill="#2563eb" stroke="#3b82f6" stroke-width="0.6"/>
+  <ellipse cx="368" cy="42" rx="12" ry="3" fill="#2563eb" stroke="#3b82f6" stroke-width="0.6"/>
+  <ellipse cx="368" cy="54" rx="12" ry="3" fill="#1d4ed8" stroke="#3b82f6" stroke-width="0.6"/>
+  <text x="368" y="70" font-size="6" fill="#e4e4e7" text-anchor="middle">PostgreSQL</text>
 
   <!-- 8. Grafana -->
-  <rect x="72" y="260" width="56" height="16" rx="3" fill="#ea580c" stroke="#f97316" stroke-width="0.8"/>
-  <text x="100" y="272" font-size="7" fill="white" text-anchor="middle">Grafana</text>
+  <rect x="400" y="38" width="48" height="16" rx="3" fill="#ea580c" stroke="#f97316" stroke-width="0.6"/>
+  <text x="424" y="49" font-size="6" fill="white" text-anchor="middle">Grafana</text>
 
   <!-- Arrows -->
-  <path d="M100 24 L100 38" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M100 56 L100 62" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M100 118 L100 132" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M100 150 L100 162" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M100 194 L100 204" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
-  <path d="M100 204 L70 208" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M100 204 L130 208" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
-  <path d="M70 228 L100 260" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
+  <path d="M52 40 L72 40" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M120 42 L138 50" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M174 56 L196 42" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M244 42 L256 50" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M288 54 L306 48" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M288 54 L356 48" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+  <path d="M330 56 L400 46" stroke="#94a3b8" stroke-width="1" fill="none" marker-end="url(#arr)"/>
 </svg>
