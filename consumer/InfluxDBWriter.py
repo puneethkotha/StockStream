@@ -12,10 +12,7 @@ class InfluxDBWriter:
     def __init__(self, bucket, measurement):
         self.bucket = bucket
         self.measurement = measurement
-        # self.client = influxdb_client.InfluxDBClient(url="http://influxdb:8086", 
-        #             token="smtzr6epf3DfZ3o0cLSbX7P6US6qS-jwHp3BK8xeeh7G7M4N7oQ3hiEmGOqkTtUK1HTLz-lELvhEwbDEXD7qEw==",
-        #             org="primary"
-        #             )
+        # Initialize InfluxDB client with environment variables for security
         self.client = influxdb_client.InfluxDBClient(url="http://influxdb:8086", 
                     token=os.environ.get("INFLUX_TOKEN"),
                     org=os.environ.get("INFLUX_ORG")
